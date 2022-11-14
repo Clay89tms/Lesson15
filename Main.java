@@ -19,12 +19,22 @@ public class Main {
                 int elemCollect = scanner.nextInt();
 
                 for (int i = 0; i < elemCollect; i++) {
-                    list.add((int) (Math.random() * 5));
+                    list.add((int) (Math.random() * 20));
                 }
             }
-            System.out.println("Коллекция сейчас: " + list);
-            list.stream().distinct().forEach(System.out::print);
+            System.out.println("Исходная Коллекция: " + list);
 
+            List<Integer> list2 = list.stream().distinct().sorted().toList();
+            System.out.println("Коллекция без Дублей: " + list2);
+
+            List<Integer> list3 = list2.stream().filter(s -> (s > 7) && (s < 17) && (s % 2 == 0)).toList();
+            System.out.println("Коллекция Четных чисел с 7 до 17: " + list3);
+
+            list = list2.stream().map(s -> s * 2).collect(Collectors.toList());
+            System.out.println("Коллекция х2: " + list);
+
+            list3 = list2.stream().filter(s -> list2.size() < 4).toList();
+            System.out.println(list3);
         }
 
 
