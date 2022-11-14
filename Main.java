@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,9 +34,15 @@ public class Main {
             list = list2.stream().map(s -> s * 2).collect(Collectors.toList());
             System.out.println("Коллекция х2: " + list);
 
-            list3 = list2.stream().filter(s -> list2.size() < 4).toList();
-            System.out.println(list3);
+            list3 = list2.stream().limit(4).toList();
+            System.out.println("Первых 4 эллемента Коллекции: " + list3);
+
+            System.out.println("Длинна Коллекции: " + list2.size());
+
+            System.out.println("Среднее Арифметическое Коллекции: " + list2.stream()
+                    .reduce((s, a) -> (s + a)).map(s -> (double) s/list2.size()));
         }
+// ЗАДАНИЕ 2 Доплнительно
 
 
     }
