@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -43,7 +40,35 @@ public class Main {
                     .reduce((s, a) -> (s + a)).map(s -> (double) s/list2.size()));
         }
 // ЗАДАНИЕ 2 Доплнительно
+        List<String> listName = new ArrayList<>();
+        listName.add("Валерия");
+        listName.add("Денис");
+        listName.add("Глеб");
+        listName.add("Ольга");
+        listName.add("Роман");
+        listName.add("Ольга");
+        listName.add("Даниил");
+        listName.add("Александр");
+        listName.add("Елизавета");
+        listName.add("Святослав");
+        listName.add("Яна");
+        listName.add("Мария");
+        listName.add("Дмитрий");
+        listName.add("Ирина");
+        listName.add("Александр");
+        listName.add("Даниил");
+        listName.add("Юлия");
 
+        System.out.println(listName);
 
+        List<String> listName1 = listName.stream()
+                .filter(x -> x.toLowerCase(Locale.ROOT).equals("рОмАн".toLowerCase(Locale.ROOT)))
+                .collect(Collectors.toList());
+        System.out.println("Сколько людей в группе с таким же как у меня именем (кроме меня)?: " + (listName1.size()-1));
+
+        List<String> listName2 = listName.stream()
+                .filter(x -> x.toLowerCase(Locale.ROOT).startsWith("а"))
+                .collect(Collectors.toList());
+        System.out.println("Сколько людей в группе с именем коротое начинается на Аа?: " + listName2);
     }
 }
